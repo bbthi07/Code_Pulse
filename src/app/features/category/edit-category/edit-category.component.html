@@ -1,0 +1,53 @@
+<div class = "container">
+    <h1 class="mt-3">Edit Category</h1>
+
+        <ng-container *ngIf = "category; else notFound">
+
+            <form #form = "ngForm" (ngSubmit)="onFormSubmit()">
+                <div class="mt-2">
+                <div class="mt-3">
+                    <label class="form-label" for="category Id">Category Id</label>
+                    <input type="text" disabled
+                            id = "categoryId"
+                            name = "categoryId"
+                            class="form-control"
+                            value="{{category.id}}">
+                    
+                </div>
+                <div class="mt-3">
+                    <label class="form-label" for="category Name">Category Name</label>
+                    <input type="text" 
+                            id = "categoryName"
+                            name = "categoryName"
+                            class="form-control"
+                            [(ngModel)]="category.name">
+                    
+                </div>
+                <div class="mt-3">
+                    <label class="form-label" for="category UrlHandle">Category UrlHandle </label>
+                    <input type="text" 
+                            id = "categoryUrlHandle"
+                            name = "categoryUrlHandle"
+                            class="form-control"
+                            [(ngModel)]="category.urlHandle">
+                    
+                </div>
+                <div class="mt-3 d-flex">
+                    <button class="btn btn-primary mt-3 ml-2" type="submit">Save</button>
+                    
+                    <button type="button" class="btn btn-danger mt-3" (click)="onDelete()">
+                        Delete
+                    </button>
+                        
+                </div>
+            </div>
+            </form>
+        
+        </ng-container>
+        <ng-template #notFound>
+            <div class="alert alert-warning" role="alert">
+                Category Not Found!
+            </div>
+        </ng-template>
+    
+</div>
