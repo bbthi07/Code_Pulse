@@ -25,7 +25,13 @@ export class CategoryService {
    }
 
    addCategory(model: AddCategoryRequest): Observable<void> {
-      return this.http.post<void>(`https://localhost:7157/api/categories`, model)
+      return this.http.post<void>(`https://localhost:7157/api/categories`, model,
+         {
+          headers: {
+         'Authorization':this.cookieService.get('Authorization')
+         }
+   });
+      
    }
    updateCategory(id:string, updateCategoryRequest: UpdateCategoryRequest)
    :Observable<Category>{
@@ -38,7 +44,13 @@ export class CategoryService {
    }
 
    deleteCategory(id:string) : Observable<Category>{
-    return this.http.delete<Category>(`https://localhost:7157/api/categories/${id}`)
+    return this.http.delete<Category>(`https://localhost:7157/api/categories/${id}`,
+      {
+          headers: {
+         'Authorization':this.cookieService.get('Authorization')
+         }
+      });
+    
    }
    
    
