@@ -32,28 +32,28 @@ const routes: Routes = [
   {
     path: 'admin/categories/add',
     component: AddCategoryComponent,
-     canActivate: [authGuard]
+    canActivate: [authGuard]
 
   },
   {
     path: 'admin/categories/:id',
     component: EditCategoryComponent,
-     canActivate: [authGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'admin/blogposts',
     component: BlogpostListComponent,
-     canActivate: [authGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'admin/blogposts/add',
     component: AddBlogpostComponent,
-     canActivate: [authGuard]
+    canActivate: [authGuard]
   },
   {
     path: 'admin/blogposts/:id',
     component: EditBlogpostComponent,
-     canActivate: [authGuard]
+    canActivate: [authGuard]
   }
 ];
 
