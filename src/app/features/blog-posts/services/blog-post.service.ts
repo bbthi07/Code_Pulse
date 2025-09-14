@@ -14,7 +14,7 @@ export class BlogPostService {
 
   CreateBlogPost(data: AddBlogpost) : Observable<BlogPost>
   {
-    return this.http.post<BlogPost>(`https://localhost:7157/api/BlogPosts`, data)
+    return this.http.post<BlogPost>(`https://localhost:7157/api/BlogPosts?addAuth=true`, data)
   }
 
   getAllBlogPosts() : Observable<BlogPost[]>
@@ -29,12 +29,12 @@ export class BlogPostService {
 
   updateBlogPost(id:string, updatedBlogPost: UpdateBlogPost) :Observable<BlogPost>
   {
-    return this.http.put<BlogPost>(`https://localhost:7157/api/BlogPosts/${id}`, updatedBlogPost)
+    return this.http.put<BlogPost>(`https://localhost:7157/api/BlogPosts/${id}?addAuth=true`, updatedBlogPost)
   }
 
   deleteBlogPost(id:string):Observable<BlogPost>
   {
-    return this.http.delete<BlogPost>(`https://localhost:7157/api/BlogPosts/${id}`)
+    return this.http.delete<BlogPost>(`https://localhost:7157/api/BlogPosts/${id}?addAuth=true`)
   }
   getBlogPostByurlHandle(urlHandle: string):Observable<BlogPost>
   {
